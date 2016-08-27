@@ -1,4 +1,4 @@
-import snap from './libs/snap';
+import snap from '../libs/snap';
 
 const World = (function() {
   function World({
