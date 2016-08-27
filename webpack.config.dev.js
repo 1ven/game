@@ -17,6 +17,9 @@ module.exports = {
     loaders: [{
       test: /\.tsx?$/,
       loader: "ts-loader",
+    }, {
+      test: require.resolve("snapsvg"),
+      loader: "imports-loader?this=>window,fix=>module.exports=0",
     }],
   },
   plugins: [
