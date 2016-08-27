@@ -1,1 +1,3 @@
-import './functional';
+import App from './containers/App';
+
+App();
