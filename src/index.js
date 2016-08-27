@@ -1,1 +1,1 @@
-import './oop';
+import './functional';
