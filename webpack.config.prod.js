@@ -2,14 +2,15 @@ const webpack = require('webpack');
 
 module.exports = {
   devtool: "source-map",
-  entry: "./src/index.ts",
+  entry: "./src/index.js",
   output: {
     filename: './dist/bundle.js',
   },
   module: {
     loaders: [{
-      test: /\.tsx?$/,
-      loader: "ts-loader",
+      test: /\.js$/,
+      loader: 'babel-loader?cacheDirectory=true',
+      exclude: /node_modules/,
     }, {
       test: require.resolve("snapsvg"),
       loader: "imports-loader?this=>window,fix=>module.exports=0",
@@ -24,6 +25,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+    extensions: ["", ".webpack.js", ".web.js", ".js"],
   },
 };

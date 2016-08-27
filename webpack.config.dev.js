@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     "webpack-dev-server/client?http://localhost:3000",
     "webpack/hot/only-dev-server",
-    "./src/index.ts",
+    "./src/index.js",
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -15,8 +15,9 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.tsx?$/,
-      loader: "ts-loader",
+      test: /\.js$/,
+      loader: 'babel-loader?cacheDirectory=true',
+      exclude: /node_modules/,
     }, {
       test: require.resolve("snapsvg"),
       loader: "imports-loader?this=>window,fix=>module.exports=0",
@@ -26,6 +27,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+    extensions: ["", ".webpack.js", ".web.js", ".js"],
   },
 };
