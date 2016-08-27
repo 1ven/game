@@ -1,7 +1,3 @@
-import World from './views/World';
+import App from './containers/App';
 
-World({
-  width: window.innerWidth,
-  height: window.innerHeight,
-  background: '#000',
-});
+App();
